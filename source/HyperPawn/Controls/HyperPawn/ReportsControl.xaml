@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Shell.Controls.ReportsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Seach Items" Name="SearchItemsButton" Click="SearchItemsButton_Click"/>
+            <ContentControl MinWidth="20"/>
+            <Button Content="Show Floor List" Name="ShowFloorListButton" Click="ShowFloorListButton_Click" />
+            <ContentControl MinWidth="20"/>
+            <Button Content="Show Amount Loaned Out" Name="ShowAmountLoanedOutButton" Click="ShowAmountLoanedOutButton_Click"/>
+            <ContentControl MinWidth="20"/>
+            <Button Content="Tax Reporting" Name="TaxReportingButton" Click="TaxReportingButton_Click"/>
+            <ContentControl MinWidth="20"/>
+            <Button Content="Copy Day Tx" Name="CopyDayTxButton" Click="CopyDayTxButton_Click"/>
+            <ContentControl MinWidth="20"/>
+            <TextBlock Text="Password:" VerticalAlignment="Center"/>
+            <TextBox Name="ReportPasswordTextbox"  MinWidth="100" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <ContentControl Name="ReportContent"/>
+        
+    </StackPanel>
+</UserControl>

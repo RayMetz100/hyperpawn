@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="Shell.Controls.PawnActionSelector"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    HorizontalAlignment="Stretch" Background="#9BAC65">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5" Text="Available Pawns:" FontWeight="Bold"/>
+            <TextBlock Margin="5" Text="Show All:"/>
+            <CheckBox Name="ShowAllCheckBox" Margin="5" VerticalAlignment="Center" Click="ShowAllCheckBox_Click"/>
+        </StackPanel>
+        <ListView Name="AvailablePawnsListView" HorizontalContentAlignment="Center" MaxHeight="300" Background="#9BAC65">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Path=Pawn.PawnId}" />
+                    <GridViewColumn Header="Pawn Date">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Foreground="{Binding Path=QueueLineTextColor}" Text="{Binding Path=Pawn.Date, StringFormat=d}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Items" Width="350">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Path=Pawn.ItemDescriptionTicket}"/>
+                                    <TextBlock Text="{Binding Path=Pawn.PawnNote}" Foreground="DarkRed" FontWeight="Bold" Visibility="{Binding Path=Pawn.PawnNoteVisibility}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Amount" TextBlock.TextAlignment="Right">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Right" Text="{Binding Path=Pawn.Amount, StringFormat=c0}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Redeem">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Add" Click="ActionAddButton_Click"/>
+                                    <ComboBox Foreground="{Binding Path=QueueLineTextColor}" ItemsSource="{Binding Path=RedeemSelections}" DisplayMemberPath="ActionAmountString" SelectedValuePath="IsDefault" SelectedValue="true" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Due Date / Renew">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Add" Click="ActionAddButton_Click"/>
+                                    <ComboBox Foreground="{Binding Path=QueueLineTextColor}" ItemsSource="{Binding Path=RenewSelections}" DisplayMemberPath="ActionAmountString" SelectedValuePath="IsDefault" SelectedValue="true"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Path=Pawn.PawnStatus}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Name="TotalsStackPanel">
+            <TextBlock Text="Total Due: "/>
+            <TextBlock FontWeight="Bold" FontSize="20" Foreground="DarkRed" Text="{Binding Path=Total, StringFormat=c}"/>
+            <TextBlock Text="Interest Due: "/>
+            <TextBlock FontWeight="Bold" Text="{Binding Path=Interest, StringFormat=c}"/>
+            <Button Content="Checkout" Click="CheckoutButton_Click"/>
+        </StackPanel>
+        <TextBlock Margin="5" Text="Selected Pawns:" FontWeight="Bold"/>
+        <ListView Name="SelectedPawnsListView" HorizontalContentAlignment="Center" MaxHeight="300" Background="#9BAC65">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Path=Pawn.PawnId}" />
+                    <GridViewColumn Header="Pawn Date" DisplayMemberBinding="{Binding Path=Pawn.Date, StringFormat=d}" />
+                    <GridViewColumn Header="Items" Width="350">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Path=Pawn.ItemDescriptionTicket}"/>
+                                    <TextBlock Text="{Binding Path=Pawn.PawnNote}" Foreground="DarkRed" FontWeight="Bold" Visibility="{Binding Path=Pawn.PawnNoteVisibility}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Pawn Amount" Block.TextAlignment="Right" DisplayMemberBinding="{Binding Path=Pawn.Amount, StringFormat=c}" />
+                    <GridViewColumn Header="Action" DisplayMemberBinding="{Binding Path=PawnCalcSelection.Action}" />
+                    <GridViewColumn Header="Amount Due" DisplayMemberBinding="{Binding Path=PawnCalcSelection.ActionAmount, StringFormat=c}" />
+                    <!--<GridViewColumn Header="Orig" DisplayMemberBinding="{Binding Path=Pawn.FirstPawnId}" />-->
+                    <GridViewColumn Header="Location" Width="200" DisplayMemberBinding="{Binding Path=Pawn.RedeemLocation}" />
+                    <GridViewColumn Header="Remove">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Remove" Click="RemoveButton_Click"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>

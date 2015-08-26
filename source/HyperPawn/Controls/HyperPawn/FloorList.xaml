@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="Shell.Controls.FloorList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    >
+    
+    <UserControl.Resources>
+        
+        <Style x:Key="CustomListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#BEDF98"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FFFFFF"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Pawns available to Floor:"/>
+            <ContentControl MinWidth="5"/>
+            <Button Content="Jewelry" Click="JewelryButton_Click" />
+            <ContentControl MinWidth="5"/>
+            <Button Content="Guns" Click="GunsButton_Click" />
+            <ContentControl MinWidth="5"/>
+            <Button Content="Other" Click="OtherButton_Click" />
+            <ContentControl MinWidth="15"/>
+            <Button Content="Print Checked Items" Click="PrintCheckedItemsButton_Click" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel MinWidth="184">
+                <TextBlock Text="Pawn Number"/>
+                <TextBlock Text="Pawn Date"/>
+                <TextBlock Text="Name"/>
+                <TextBlock Text="Amount"/>
+            </StackPanel>
+
+            <StackPanel MinWidth="100">
+                <TextBlock Text="Employee"/>
+                <TextBlock Text="First Pawn Date"/>
+                <TextBlock Text="Months Behind"/>
+                <TextBlock Text="Location"/>
+            </StackPanel>
+
+            <StackPanel MinWidth="40" VerticalAlignment="Center">
+                <TextBlock Text="Active"/>
+                <TextBlock Text="Picked Up"/>
+                <TextBlock Text="Floored"/>
+            </StackPanel>
+
+            <StackPanel MinWidth="60" VerticalAlignment="Center">
+                <TextBlock Text="Select" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+
+            <StackPanel MinWidth="1000" VerticalAlignment="Center">
+                <TextBlock Text="Pawn Description"/>
+                <TextBlock Text="Pawn Note"/>
+                <TextBlock Text="Customer Note"/>
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <ScrollViewer Height="500">
+            <ListView Name="myListView" ItemContainerStyle="{DynamicResource CustomListViewItemStyle}" AlternationCount="2">
+                <ListView.View>
+                    <GridView >
+                        <GridViewColumn Width="180" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Top">
+                                        <TextBlock Text="{Binding Path=Id}"  />
+                                        <TextBlock Text="{Binding Path=PawnDate, StringFormat=MM/dd/yy}" />
+                                        <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" />
+                                        <TextBlock Text="{Binding Path=Amount, StringFormat=C0}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Top">
+                                        <TextBlock Text="{Binding Path=Employee}"  />
+                                        <TextBlock Text="{Binding Path=FirstPawnDate, StringFormat=MM/dd/yy}" />
+                                        <TextBlock Text="{Binding Path=MonthsBehind}"  />
+                                        <TextBlock Text="{Binding Path=Location}"  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="55" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Path=Active}" />
+                                        <TextBlock Text="{Binding Path=PickedUp}" />
+                                        <TextBlock Text="{Binding Path=Floored}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="60" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Top">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Print: "/>
+                                            <CheckBox HorizontalAlignment="Center"  IsChecked="{Binding Path=Selected}" />
+                                        </StackPanel>
+                                        <ContentControl MinHeight="10" />
+                                        <Button HorizontalAlignment="Center" Content="Floor" Name="FloorItemButton" Click="FloorItemButton_Click" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="1000" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Path=Description}" TextWrapping="WrapWithOverflow" />
+                                        <TextBlock Text="{Binding Path=PawnNote}" TextWrapping="WrapWithOverflow" />
+                                        <TextBlock Text="{Binding Path=CustomerNote}" TextWrapping="WrapWithOverflow" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>

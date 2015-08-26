@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="Shell.Controls.FirearmLog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock>Firearm Log #:</TextBlock>
+                <TextBox TabIndex="1" MinWidth="100" Name="LogNumberText" KeyDown="LogNumberText_KeyDown"/>
+                <TextBlock>Serial Number:</TextBlock>
+                <TextBox TabIndex="2" MinWidth="100" Name="SerialNumberText" KeyDown="SerialNumberText_KeyDown"/>
+                <TextBlock>Receipt Name:</TextBlock>
+                <TextBox TabIndex="3" MinWidth="100" Name="ReceiptNameText" KeyDown="ReceiptNameText_KeyDown"/>
+                <TextBlock>Disposition Name:</TextBlock>
+                <TextBox TabIndex="4" MinWidth="100" Name="DisppsitionNameText" KeyDown="DisppsitionNameText_KeyDown"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DataContext="{Binding ElementName=LogListView, Path=SelectedItem}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Firearm Log Number:" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Background="White" Text="{Binding Path=FirearmLogReferenceId}" FontWeight="Bold" />
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="FirstPawnId:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Background="White" Text="{Binding Path=FirstPawnId}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Location:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Background="White" Text="{Binding Path=Location}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="PawnStatus:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Background="White" Text="{Binding Path=PawnStatus}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Pawn Status Date:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="4" Background="White" Text="{Binding Path=PawnStatusDate}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Make:"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Make}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Model:"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Model}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Serial:"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Serial}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Type:"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=Type}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Caliber:"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Path=Caliber}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Receipt Date:"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=ReceiptDate}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Receipt Name/FFL:"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=ReceiptName}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Receipt Address:"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=ReceiptAddress}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Dispostion Date:"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=DispositionDate}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Dispostion Name/FFL:"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Path=DispositionName}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Dispostion Address:"/>
+                    <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Path=DispositionAddress}"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <Button VerticalAlignment="Bottom" Name="UpdateLogEntryButton" Content="Update Log Entry" Click="UpdateLogEntryButton_Click" Width="250"/>
+        <ListView Name="LogListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FirearmLogReferenceId}" Header="Log Number"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Make}" Header="Make"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Model}" Header="Model"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Serial}" Header="Serial"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Type"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Caliber}" Header="Caliber"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ReceiptDate}" Header="ReceiptDate"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>
