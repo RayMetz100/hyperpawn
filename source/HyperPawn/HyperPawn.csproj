@@ -372,6 +372,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="SQLother\10createdatabase\01 HyperPawnData.sql" />
+    <Content Include="SQLother\10createdatabase\10 HyperPawn.sql" />
+    <Content Include="SQLother\10createdatabase\15 InterestWA.sql" />
+    <Content Include="SQLother\70other\24procPawn.sql" />
+    <Resource Include="SQLother\70other\InstallHyperPawnProcs.txt" />
+    <Content Include="SQLother\70other\Dev\33procReports.sql" />
+    <Content Include="SQLother\70other\Dev\ChrisInventory Floored.sql" />
+    <Content Include="SQLother\70other\Dev\Transaction.sql" />
+    <Content Include="SQLother\70other\Operations\MergeItems.sql" />
+    <Content Include="SQLother\70other\PurchaseHistory.sql" />
+    <Content Include="SQLother\70other\Upgrade.sql" />
     <Content Include="SQLprocs\21procCustomer.sql" />
     <Content Include="SQLprocs\22procFirearm.sql" />
     <Content Include="SQLprocs\23procItem.sql" />

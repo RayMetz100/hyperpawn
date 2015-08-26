@@ -4,18 +4,21 @@ SQL Database Server Install
 3. Add procs from source\HyperPawn\SQLProcs to HyperPawn database
 4. Create HyperPawnData database for user data only with script from 10createdatabase folder
 5. Add 15 InterestWA.sql tables with script from 10createdatabase folder for Washington State interest.
-6. If clients will be  is on separate PC from client...
+6. Manually browse your Employee table and add employees.
+   Check and manually adjust using SQL your item type and subtype tables
+   Check other tables to see if any manual DB configurations need to me made
+7. If clients will be  is on separate PC from client...
      Open Windows firewall settings on server.  add rule to allow incoming port 1433
      Open SQL Configuration Manager on server.  Open server network config, set TCP/IP to enabled.
-7. If using SQL security, set to SQL Server Authentication mode and add a SQL user.  Otherwise add and configure Windows users.
-8. Configure regular HyperPawnData backups
+8. If using SQL security, set to SQL Server Authentication mode and add a SQL user.  Otherwise add and configure Windows users.
+9. Configure regular HyperPawnData backups
 
 Client Build Requirements and Install
 1. Install Visual Studio 2015 Community Edition
 2. Open source\HyperPawn Solution
 3. Change to "Release" mode(as opposed to debug mode) and Build.
 4. Result is HyperPawn.exe located in bin\Release folder.  Run directly, copy elsewhere or to client PC.
-5. Also copy HyperPawn.exe.config which is a template for settings stored in client registry.
+   Also copy HyperPawn.exe.config which is a template for settings stored in client registry.
 
 Configure and Test client
 1. Launch HyperPawn.exe  
@@ -24,6 +27,8 @@ Configure and Test client
 3. Modify connection string at the bottom of Settings to attach to your own server.
 Integrated security example: Data Source=xxx;Initial Catalog=HyperPawn;Integrated Security=SSPI;
 SQL Standard security example: Server=xxx;Database=HyperPawn;User ID=xxx;Password=xxx;Trusted_Connection=False;
+4. After modifying the connection string, close and relaunch HyperPawn.  If HyperPawn opens without 15 second delay, then database connection was successful.
+
 
 Client Install
 1. If not running Windows 8.1 minimum, install .NET framework 4.5.  Client and server tests fine on Windows Vista.
