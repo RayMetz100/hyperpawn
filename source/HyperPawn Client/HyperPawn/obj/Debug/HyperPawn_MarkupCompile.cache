@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\raymetz\Documents\Personal\MD\HyperPawn Dev\HyperPawn Application\HyperPawn Client\HyperPawn\obj\Debug\
+C:\Users\HyperPawn\Documents\GitHubVisualStudio\hyperpawn\source\HyperPawn Client\HyperPawn\obj\Debug\
 Shell
 none
 false
 DEBUG;TRACE
-C:\Users\raymetz\Documents\Personal\MD\HyperPawn Dev\HyperPawn Application\HyperPawn Client\HyperPawn\App.xaml
+C:\Users\HyperPawn\Documents\GitHubVisualStudio\hyperpawn\source\HyperPawn Client\HyperPawn\App.xaml
 202085218967
 
 44263827451
-17582098794
+17-247258224
 Controls\FirearmLog.xaml;Controls\HyperPawn\ActionTabs.xaml;Controls\HyperPawn\DailyActivityDetail.xaml;Controls\HyperPawn\FloorList.xaml;Controls\HyperPawn\HyperPawn.xaml;Controls\HyperPawn\ItemSelector.xaml;Controls\HyperPawn\PawnActionSelector.xaml;Controls\HyperPawn\PurchaseEditor.xaml;Controls\HyperPawn\PutAwayControl.xaml;Controls\HyperPawn\ReportsControl.xaml;Controls\HyperSale\HyperSale.xaml;JunkMainMenu.xaml;Controls\HyperPawn\PawnEditor.xaml;Controls\PartyEditor.xaml;Controls\PartySelector.xaml;Reports\Controls\CopyDailyTransactions.xaml;Reports\Controls\SearchItems.xaml;Reports\Controls\TaxReporting.xaml;Startup.xaml;UserSettings.xaml;
 
 False

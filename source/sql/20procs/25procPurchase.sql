@@ -6,7 +6,6 @@ IF OBJECT_ID('PurchaseDelete') IS NOT NULL
 GO
 CREATE PROCEDURE PurchaseDelete
 @PurchaseId int
-WITH ENCRYPTION
 AS
   set nocount on
 
@@ -45,7 +44,6 @@ CREATE PROCEDURE PurchaseAssign
 @EmployeeId SMALLINT,
 @CustomerId INT,
 @PurchaseId INT OUT
-WITH ENCRYPTION
 AS
   set nocount on
 
@@ -99,7 +97,6 @@ CREATE PROC PurchaseItemInsert
   @ReceiptDate     DATETIME2     = NULL,
   @ReceiptName     NVARCHAR(200) = NULL,
   @ReceiptAddress  NVARCHAR(200) = NULL
-  WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   DECLARE @ItemDetailInsertCount INT
@@ -225,7 +222,6 @@ CREATE PROC PurchaseSave
 @CustomerId      INT,
 @Location        NVARCHAR(30)  = NULL,
 @ItemsXml        XML
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   DECLARE @msg VARCHAR(255)
@@ -406,7 +402,6 @@ IF OBJECT_ID('PurchaseGetDetails') IS NOT NULL
 GO
 CREATE PROCEDURE PurchaseGetDetails
 @PurchaseId int
-WITH ENCRYPTION
 AS
 set nocount on
 -- Get Purchase
@@ -480,7 +475,6 @@ CREATE PROCEDURE PurchaseGet
 @PartyId INT,
 @Top INT,
 @ShowAll BIT
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   SELECT TOP (@Top)
@@ -515,7 +509,6 @@ GO
 
 CREATE PROC PurchaseGetTicket
 @PurchaseId INT
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 
@@ -596,7 +589,6 @@ CREATE FUNCTION dbo.FnPurchaseItemDescription
 @PurchaseId INT
 )
 RETURNS VARCHAR(MAX)
-WITH ENCRYPTION
 AS
   BEGIN
     DECLARE @items VARCHAR(MAX)

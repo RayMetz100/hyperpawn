@@ -23,7 +23,6 @@ CREATE PROC PawnItemInsert
   @ReceiptDate     DATETIME2     = NULL,
   @ReceiptName     NVARCHAR(200) = NULL,
   @ReceiptAddress  NVARCHAR(200) = NULL
-  WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   DECLARE @ItemDetailInsertCount INT
@@ -168,7 +167,6 @@ PRINT @RC
 --@PawnId INT
 --)
 --RETURNS VARCHAR(MAX)
---WITH ENCRYPTION
 --AS
 --  BEGIN
 --    DECLARE @items VARCHAR(MAX)
@@ -211,7 +209,6 @@ CREATE FUNCTION dbo.FnItemDescriptionTicket
 @PawnId INT
 )
 RETURNS VARCHAR(MAX)
-WITH ENCRYPTION
 AS
   BEGIN
     DECLARE @items VARCHAR(MAX)
@@ -265,7 +262,6 @@ IF OBJECT_ID('TaxyGetItemSubTypes') IS NOT NULL
 GO
 
 CREATE PROC TaxyGetItemSubTypes
-WITH ENCRYPTION
 AS
 SELECT ItemTypeId, ItemSubTypeId, DisplayOrder, ItemSubTypeName, ItemTableId
 FROM   HyperPawnData.dbo.ItemSubType
@@ -276,7 +272,6 @@ IF OBJECT_ID('TaxyGetItemTypes') IS NOT NULL
 GO
 
 CREATE PROC TaxyGetItemTypes
-WITH ENCRYPTION
 AS
 SELECT ItemTypeId, DisplayOrder, ItemTypeName
 FROM   HyperPawnData.dbo.ItemType
@@ -289,8 +284,7 @@ GO
 
 CREATE PROCEDURE PartyGetItems -- PartyGetItems 24
 @PartyId INT
-WITH ENCRYPTION
-As
+AS
 SELECT
   I.ItemId, --P.CustomerId,
   I.ItemTypeId,

@@ -10,7 +10,6 @@ CREATE PROCEDURE TotalsGetTaxTotals
 @EndDate   DATETIME, -- user will type date to end on (sproc will return data for that end date)
 --@DailyDetail BIT = 0,
 @PawnDetail BIT = 0
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 SELECT   P.PawnStatusId Status, P.PawnId Id, P.PawnDate PawnOrPurchDate, P.PawnStatusDate StatusDate, SUM(I.Amount) Amount, 
@@ -81,7 +80,6 @@ GO
 CREATE PROCEDURE TotalsGetDayDetail
   @StartDate DATETIME2,
   @EndDate   DATETIME2
-  WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   
@@ -142,7 +140,6 @@ GO
 
 CREATE PROCEDURE TotalsGetAmountLoanedOut
 @AmountLoanedOut MONEY OUT
-WITH ENCRYPTION
 AS
   SELECT @AmountLoanedOut = ISNULL(SUM(LI.Amount),0)
   FROM   HyperPawnData.dbo.Pawn     L

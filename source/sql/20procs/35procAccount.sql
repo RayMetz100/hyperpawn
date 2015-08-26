@@ -6,7 +6,6 @@ IF OBJECT_ID('TaxyGetAccounts') IS NOT NULL
 GO
 
 CREATE PROCEDURE TaxyGetAccounts
-  WITH ENCRYPTION
 AS
 
 SELECT *
@@ -20,7 +19,6 @@ IF OBJECT_ID('TaxyGetAccountTransactionTaxCategories') IS NOT NULL
 GO
 
 CREATE PROCEDURE TaxyGetAccountTransactionTaxCategories
-  WITH ENCRYPTION
 AS
 
 SELECT *
@@ -35,7 +33,6 @@ GO
 CREATE PROCEDURE AccountTransactionsGet
   @StartDate DATETIME,
   @EndDate   DATETIME -- user will type date to end on (sproc will return data for that end date)
-  WITH ENCRYPTION
 AS
 
 
@@ -66,7 +63,6 @@ GO
 
 CREATE PROCEDURE AccountTransactionsSave
   (@tvpAccountTransactions dbo.AccountTransactionType READONLY)
-  WITH ENCRYPTION
 AS
 
 UPDATE D

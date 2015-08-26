@@ -8,7 +8,6 @@ GO
 CREATE PROCEDURE ReportSearchItems
   @SearchString VARCHAR(255),
   @PawnStatusId CHAR(1) = NULL
-  WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 
@@ -47,7 +46,6 @@ GO
 
 CREATE PROCEDURE GetFloorReport
 @PawnIds XML
-WITH ENCRYPTION
 AS
   DECLARE @t TABLE (PawnId INT NOT NULL PRIMARY KEY CLUSTERED)
   INSERT INTO @t
@@ -103,7 +101,6 @@ GO
 
 CREATE PROCEDURE ReportFloorGetLatestDays
 @Num INT
-WITH ENCRYPTION
 AS
 SELECT   TOP (@Num)
            --P.PawnStatusDate,
@@ -137,7 +134,6 @@ GO
 
 CREATE PROCEDURE ReportLocationGetCounts
 @Num INT
-WITH ENCRYPTION
 AS
 SELECT   TOP (@Num)
            --P.PawnStatusDate,
@@ -168,7 +164,6 @@ GO
 
 CREATE PROCEDURE ChrisReportGetFlooredPawns
 @FlooredDay DATETIME
-WITH ENCRYPTION
 AS
   SELECT
            P.FirstPawnId                                               FirstPawnId,
@@ -223,7 +218,6 @@ GO
 CREATE PROCEDURE ChrisReportGetPawnsByLocation
 @StartLocation VARCHAR(100),
 @EndLocation   VARCHAR(100)
-WITH ENCRYPTION
 AS
   SELECT
            P.FirstPawnId                                               FirstPawnId,

@@ -11,7 +11,6 @@ CREATE PROC FirearmPawnPickup
   @DispositionDate       DATETIME2    ,
   @DispositionName       NVARCHAR(200),
   @DispositionAddress    NVARCHAR(200)
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
       INSERT INTO HyperPawnData.dbo.FirearmsAcquisitionAndDispositionEntry
@@ -66,7 +65,6 @@ CREATE PROC FirearmAppendLogEntry
   @DispositionDate       DATETIME2    ,
   @DispositionName       NVARCHAR(200),
   @DispositionAddress    NVARCHAR(200)
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
       INSERT INTO HyperPawnData.dbo.FirearmsAcquisitionAndDispositionEntry
@@ -110,7 +108,6 @@ CREATE PROC FirearmGetLog
   @ReceiptName     NVARCHAR(200) = NULL,
   @DispositionName NVARCHAR(200) = NULL,
   @SerialNumber    NVARCHAR(50) = NULL
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   
@@ -207,7 +204,6 @@ CREATE PROC FirearmAddLogEntry
   @DispositionDate       DATETIME2     = NULL,
   @DispositionName       NVARCHAR(200) = NULL,
   @DispositionAddress    NVARCHAR(200) = NULL
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   

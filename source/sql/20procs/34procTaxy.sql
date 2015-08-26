@@ -5,7 +5,6 @@ IF OBJECT_ID('TaxyGetPawnStatus') IS NOT NULL
   DROP PROC TaxyGetPawnStatus
 GO
 CREATE PROCEDURE TaxyGetPawnStatus
-WITH ENCRYPTION
 AS
 SELECT PawnStatusId, PawnStatus, PawnStatusId PawnStatusChar
 FROM HyperPawnData.dbo.PawnStatus
@@ -16,7 +15,6 @@ IF OBJECT_ID('TaxyGetEmployees') IS NOT NULL
   DROP PROC TaxyGetEmployees
 GO
 CREATE PROCEDURE TaxyGetEmployees
-WITH ENCRYPTION
 AS
   SELECT EmployeeId, Initials, Last, First, Middle
   FROM   HyperPawnData.dbo.Employee
@@ -29,7 +27,6 @@ IF OBJECT_ID('TaxyGetCities') IS NOT NULL
 GO
 CREATE PROCEDURE TaxyGetCities
 @Top TINYINT
-WITH ENCRYPTION
 AS
 SELECT TOP (@Top)
          ROW_NUMBER() OVER (ORDER BY COUNT(1) desc) AS Id,
@@ -48,7 +45,6 @@ IF OBJECT_ID('TaxyGetGunType') IS NOT NULL
 GO
 CREATE PROCEDURE TaxyGetGunType
 @Top TINYINT
-WITH ENCRYPTION
 AS
 SELECT TOP (@Top)
          ROW_NUMBER() OVER (ORDER BY COUNT(1) DESC) AS Id,
@@ -67,7 +63,6 @@ IF OBJECT_ID('TaxyGetRace') IS NOT NULL
 GO
 CREATE PROCEDURE TaxyGetRace
 @Top TINYINT
-WITH ENCRYPTION
 AS
 SELECT TOP (@Top)
          ROW_NUMBER() OVER (ORDER BY COUNT(1) desc) AS Id,
@@ -86,7 +81,6 @@ IF OBJECT_ID('TaxyGetHair') IS NOT NULL
 GO
 CREATE PROCEDURE TaxyGetHair
 @Top TINYINT
-WITH ENCRYPTION
 AS
 SELECT TOP (@Top)
          ROW_NUMBER() OVER (ORDER BY COUNT(1) desc) AS Id,
@@ -104,7 +98,6 @@ IF OBJECT_ID('TaxyGetEyes') IS NOT NULL
 GO
 CREATE PROCEDURE TaxyGetEyes
 @Top TINYINT
-WITH ENCRYPTION
 AS
 SELECT TOP (@Top)
          ROW_NUMBER() OVER (ORDER BY COUNT(1) desc) AS Id,

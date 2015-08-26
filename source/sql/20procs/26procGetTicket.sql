@@ -7,7 +7,6 @@ GO
 
 CREATE PROC GetTicket
 @PawnId INT
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 
@@ -119,7 +118,6 @@ GO
 CREATE PROC PrintingGetJewelryLabel
 @Type   CHAR(1),
 @Id INT
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   

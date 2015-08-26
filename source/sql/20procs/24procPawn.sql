@@ -6,7 +6,6 @@ IF OBJECT_ID('PawnDelete') IS NOT NULL
 GO
 CREATE PROCEDURE PawnDelete
 @PawnId int
-WITH ENCRYPTION
 AS
   set nocount on
 
@@ -46,7 +45,6 @@ CREATE PROCEDURE PawnAssign
 @CustomerId INT,
 @PawnId INT OUT,
 @PawnNote NVARCHAR(1000)
-WITH ENCRYPTION
 AS
   set nocount on
 
@@ -93,7 +91,6 @@ CREATE PROC PawnSave
 @InterestReceived MONEY = NULL,
 @ItemsXml         XML,
 @PawnNote         NVARCHAR(1000) = NULL
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   DECLARE @msg VARCHAR(255)
@@ -297,7 +294,6 @@ GO
 --	@IsFirearm char(1) = 'N', 
 --	@PawnDate datetime = NULL, 
 --	@PawnId int = NULL
---WITH ENCRYPTION
 --AS
 --	SET NOCOUNT ON
 --	DECLARE @StorageFee                money = 3
@@ -366,7 +362,6 @@ IF OBJECT_ID('PawnGetDetails') IS NOT NULL
 GO
 CREATE PROCEDURE PawnGetDetails
 @PawnId int
-WITH ENCRYPTION
 AS
 set nocount on
 -- Get Pawn
@@ -453,7 +448,6 @@ CREATE PROCEDURE PawnGet
 @PartyId INT,
 @Top INT,
 @ShowAll BIT
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   SELECT TOP (@Top)
@@ -503,7 +497,6 @@ CREATE PROCEDURE PawnRedeem
 @PawnId     INT,
 @EmployeeId TINYINT,
 @InterestReceived MONEY
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 DECLARE @FirearmLogReferenceId INT,
@@ -555,7 +548,6 @@ GO
 CREATE PROCEDURE PawnFloor
 @PawnId INT,
 @EmployeeId TINYINT
-WITH ENCRYPTION
 AS
   UPDATE HyperPawnData.dbo.Pawn
   SET PawnStatusId = 'F', PawnStatusDate = SYSDATETIME(), ModifiedBy = @EmployeeId
@@ -573,7 +565,6 @@ CREATE PROCEDURE PawnRenew
 @EmployeeId       TINYINT,
 @RenewDate        DATETIME,
 @InterestReceived MONEY
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 DECLARE @msg VARCHAR(255)
@@ -630,7 +621,6 @@ IF OBJECT_ID('PawnGetPutAwayItems') IS NOT NULL
   DROP PROC PawnGetPutAwayItems
 GO
 CREATE PROCEDURE PawnGetPutAwayItems
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   SELECT L.PawnId, L.PawnDate, C.Last, dbo.FnItemDescriptionTicket(L.FirstPawnId) Item, G.FirearmLogReferenceId
@@ -649,7 +639,6 @@ CREATE PROCEDURE PawnUpdateLocation
 @EmployeeId TINYINT,
 @PawnId     INT,
 @Location   VARCHAR(50)
-WITH ENCRYPTION
 AS
   SET NOCOUNT ON
   
@@ -668,7 +657,6 @@ IF OBJECT_ID('PawnGetFloorList') IS NOT NULL
 GO
 CREATE PROCEDURE PawnGetFloorList
 @ItemTypeId TINYINT = NULL
-WITH ENCRYPTION
 AS
 
 DECLARE @ItemType TABLE (ItemTypeId TINYINT NOT NULL PRIMARY KEY CLUSTERED)

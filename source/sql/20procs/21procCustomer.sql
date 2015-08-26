@@ -9,7 +9,6 @@ CREATE PROCEDURE PartySearch
 @PawnToCustomerId INT OUT,
 @Last  nvarchar(40),
 @First nvarchar(40)
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 BEGIN TRY
@@ -50,7 +49,6 @@ if object_id('PartySearchById') is not null
 GO
 CREATE PROCEDURE PartySearchById
 @IDNumber nvarchar(40)
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 BEGIN TRY
@@ -88,7 +86,6 @@ CREATE PROCEDURE PartyGetDetails
 @IDNumber nvarchar(30) = NULL,
 @IdTypeId int          = NULL, 
 @IdState  CHAR(2)      = NULL
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 BEGIN TRY
@@ -225,7 +222,6 @@ CREATE PROCEDURE PartyUpsert
   @Phone              varchar(15) = NULL,
   @Email              nvarchar(40) = NULL,
   @Note               nvarchar(max) = NULL
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 DECLARE @Rowcount INT

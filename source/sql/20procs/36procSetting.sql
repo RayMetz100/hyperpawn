@@ -37,7 +37,6 @@ CREATE PROCEDURE SettingMaintain
 @DeleteKey BIT = 0,
 @EncryptedValueOld NVARCHAR(100) = NULL,
 @EncryptedValueNew NVARCHAR(100) = NULL
-WITH ENCRYPTION
 AS
 SET NOCOUNT ON
 DECLARE @rowcount INT
@@ -115,7 +114,6 @@ GO
 
 CREATE PROCEDURE ReportValidatePassword
 @password NVARCHAR(100)
-WITH ENCRYPTION
 AS
 	OPEN SYMMETRIC KEY EncryptedValue_Key_01
 	   DECRYPTION BY CERTIFICATE SettingEncryptedValue
