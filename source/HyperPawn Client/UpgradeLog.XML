@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="HyperPawn">
+</Property><Property Name="Solution File" Value="C:\Users\raymetz\Documents\Personal\MetzData\HyperPawn Dev\2010\HyperPawn.sln">
+</Property><Property Name="Date" Value="Saturday, October 10, 2009">
+</Property><Property Name="Time" Value="16:09 PM">
+</Property></Properties><Event ErrorLevel="0" Project="HyperPawn" Source="HyperPawn\HyperPawn.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="HyperPawn" Source="HyperPawn\HyperPawn.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="HyperPawn.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="HyperPawn.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="HyperPawn" Source="HyperPawn\HyperPawn.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

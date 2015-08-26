@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Shell.Controls.ActionTabs"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Shell.Controls"
+    >
+    <TabControl Name="Tabs">
+        <TabItem Name="PawnTab" Header="Pawn"/>
+        <TabItem Name="PurchaseTab" Header="Purchase"/>
+        <TabItem Name="RenewRedeemTab" Header="Renew and Redeem"/>
+        <TabItem Name="PayDayTab" Header="Payday"/>
+        <TabItem Name="RetailTab" Header="Retail Sale"/>
+    </TabControl>
+</UserControl>

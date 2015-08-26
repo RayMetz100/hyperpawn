@@ -1,0 +1,31 @@
+﻿<Window x:Class="Shell.Controls.PutAwayControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <StackPanel>
+        <ListView Name="myListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PawnId}" Header="Pawn Number"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PawnDate}" Header="Date"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Last}" Header="Name"/>
+                    <GridViewColumn Width="500" DisplayMemberBinding="{Binding Path=Item}" Header="Description"/>
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding Path=FirearmLogReferenceId}" Header="Log"/>-->
+                    <GridViewColumn Header="Location">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Name="LocationTextBox" Text="{Binding Path=Location}" MinWidth="20" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal">
+            <Button Name="CloseButton" Click="CloseButton_Click" Content="Close"/>
+            <ContentControl MinWidth="5"/>
+            <Button Name="SaveButton" Click="SaveButton_Click" Content="Save"/>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>
