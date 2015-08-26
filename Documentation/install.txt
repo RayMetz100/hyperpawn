@@ -1,0 +1,42 @@
+SQL Database Server Install
+1. Install SQL Server Express Edition.  I'm using SQL 2014
+2. Create HyperPawn database with \source\HyperPawn\SQLother\10createdatabase\ scripts
+3. Add procs from source\HyperPawn\SQLProcs to HyperPawn database
+4. Create HyperPawnData database for user data only with script from 10createdatabase folder
+5. Add 15 InterestWA.sql tables with script from 10createdatabase folder for Washington State interest.
+6. If clients will be  is on separate PC from client...
+     Open Windows firewall settings on server.  add rule to allow incoming port 1433
+     Open SQL Configuration Manager on server.  Open server network config, set TCP/IP to enabled.
+7. If using SQL security, set to SQL Server Authentication mode and add a SQL user.  Otherwise add and configure Windows users.
+8. Configure regular HyperPawnData backups
+
+Client Build Requirements and Install
+1. Install Visual Studio 2015 Community Edition
+2. Open source\HyperPawn Solution
+3. Change to "Release" mode(as opposed to debug mode) and Build.
+4. Result is HyperPawn.exe located in bin\Release folder.  Run directly, copy elsewhere or to client PC.
+5. Also copy HyperPawn.exe.config which is a template for settings stored in client registry.
+
+Configure and Test client
+1. Launch HyperPawn.exe  
+   After 15 second wait, an error will appear that it failed to connect to the database
+2. Click OK on Error, then maximize, then the Settings button in the uper right of screen.
+3. Modify connection string at the bottom of Settings to attach to your own server.
+Integrated security example: Data Source=xxx;Initial Catalog=HyperPawn;Integrated Security=SSPI;
+SQL Standard security example: Server=xxx;Database=HyperPawn;User ID=xxx;Password=xxx;Trusted_Connection=False;
+
+Client Install
+1. If not running Windows 8.1 minimum, install .NET framework 4.5.  Client and server tests fine on Windows Vista.
+2. Go to Microsoft Downloads at http://www.microsoft.com/en-us/download/default.aspx
+   Search for, download and install MICROSOFT REPORT VIEWER 2015 RUNTIME
+   (formerly called Report Viewer Redistributable)
+3. Copy HyperPawn.exe and HyperPawn.exe.config to any folder on client.  Double-click to run.  
+   If it fails tun run, you can install Visual Studio 2015 and build it locally before running or debug from Visual Studio.
+
+Printer config
+When you click Print in the client, the client opens up a .rdl(SQL Server Reporting Services/SSRS) file and prints it locally.
+The .rdl calls a proc like \source\HyperPawn\SQLprocs\26procGetTicket.sql with a pawn number.
+1. Create or modify a .rdl file with SSRS designer. (I haven't uploaded an example to GitHub)
+2. Copy it to the client
+3. Test your printer and know your printer name.  Can be local or networked printer.
+4. Open Settings in upper right of HpyerPawn client and add the .rdl and printer names to the fields.
