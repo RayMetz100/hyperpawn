@@ -40,6 +40,9 @@ namespace Shell
         private static List<Data.Employee> employees = (connectiontodatabaseverified) ? HyperPawnDB.TaxyGetEmployees() : new List<Data.Employee>();
         public static List<Data.Employee> Employees { get { return employees; } }
 
+        private static Data.StorageFee storagefee = (connectiontodatabaseverified) ? HyperPawnDB.TaxyGetStorageFees() : new Data.StorageFee(0,0);
+        public static Data.StorageFee StorageFee { get { return storagefee; } }
+
         private static Collection<Data.TaxyComboSource> taxycities = (connectiontodatabaseverified) ? HyperPawnDB.TaxyGetComboSource("TaxyGetCities", 12) : new Collection<Data.TaxyComboSource>();
         public static Collection<Data.TaxyComboSource> TaxyCities { get { return taxycities; } }
 

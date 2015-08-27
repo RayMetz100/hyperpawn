@@ -104,6 +104,18 @@ namespace Shell.Data
         }
     }
 
+    public class StorageFee
+    {
+        public decimal Item { get; set; }
+        public decimal Firearm { get; set; }
+
+        public StorageFee(decimal item, decimal firearm)
+        {
+            Item = item;
+            Firearm = firearm;
+        }
+    }
+
     public class Employee
     {
         public int Id { get; set; }

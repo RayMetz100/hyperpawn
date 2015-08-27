@@ -29,7 +29,9 @@ namespace Shell
         //SearchCustomersAndPawns searchcustomersandpawns;
 
         Binding employeebinding = new Binding();
-        
+
+        //App.StorageFee.Item;
+        //App.StorageFee.Firearm;
 
         public Startup()
         {

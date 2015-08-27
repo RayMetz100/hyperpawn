@@ -1,6 +1,18 @@
 USE HyperPawnData
 GO
 
+IF OBJECT_ID('PawnFees_WA_Storage') IS NOT NULL
+  DROP TABLE PawnFees_WA_Storage
+GO
+
+CREATE TABLE PawnFees_WA_Storage (
+  FeeName SYSNAME NOT NULL PRIMARY KEY CLUSTERED,
+  Amount  MONEY   NOT NULL)
+GO
+
+INSERT INTO PawnFees_WA_Storage VALUES  ('Item'   ,5.00)
+                                       ,('Firearm',5.00);
+
 IF OBJECT_ID('PawnFees_WA_Interest') IS NOT NULL
   DROP TABLE PawnFees_WA_Interest
 GO
@@ -112,19 +124,21 @@ RETURN
   SELECT
    ISNULL(MAX(MonthlyInterestAmount),CAST(0 AS MONEY)) MonthlyInterestAmount
   ,ISNULL(MAX(PreparationAmount)    ,CAST(0 AS MONEY)) PreparationAmount
-  ,CAST(5 AS MONEY)                                    StorageFee
-  ,CAST(5 AS MONEY)                                    FirearmFee
+  ,MAX(S .Amount)                                      StorageFee
+  ,MAX(SF.Amount)                                      FirearmFee
   FROM (SELECT
-         CAST(ISNULL(MonthlyInterestAmount,@PawnAmount * .035) AS MONEY) MonthlyInterestAmount
-        ,CAST(NULL AS MONEY)                                             PreparationAmount
+         CAST(ISNULL(MonthlyInterestAmount,@PawnAmount * MonthlyInterestPercent) AS MONEY) MonthlyInterestAmount
+        ,CAST(NULL AS MONEY)                                                               PreparationAmount
         FROM   HyperPawnData.dbo.PawnFees_WA_Interest
         WHERE  @PawnAmount BETWEEN AmountStart AND AmountEnd
         UNION ALL 
         SELECT
 		 CAST(NULL AS MONEY)                                             MonthlyInterestAmount
 		,PreparationAmount                                               PreparationAmount
-        FROM   HyperPawnData.dbo.PawnFees_WA_Preparation 
+        FROM   HyperPawnData.dbo.PawnFees_WA_Preparation P
         WHERE  @PawnAmount BETWEEN AmountStart AND AmountEnd) I
+  JOIN HyperPawnData.dbo.PawnFees_WA_Storage S  ON S .FeeName = 'Item'
+  JOIN HyperPawnData.dbo.PawnFees_WA_Storage SF ON SF.FeeName = 'Firearm'
 GO
 
 
@@ -144,4 +158,16 @@ CREATE PROCEDURE TaxyGetPawnFees_WA_Preparation
 AS
   SELECT AmountStart, AmountEnd, PreparationAmount
   FROM   HyperPawnData.dbo.PawnFees_WA_Preparation
+GO
+
+
+IF OBJECT_ID('TaxyGetPawnFees_WA_Storage') IS NOT NULL
+  DROP PROC TaxyGetPawnFees_WA_Storage
+GO
+CREATE PROCEDURE TaxyGetPawnFees_WA_Storage
+AS
+  SELECT I.Amount as Item, F.Amount as Firearm
+  FROM   HyperPawnData.dbo.PawnFees_WA_Storage I
+  JOIN   HyperPawnData.dbo.PawnFees_WA_Storage F ON F.FeeName = 'Firearm'
+  WHERE  I.FeeName = 'Item'
 GO

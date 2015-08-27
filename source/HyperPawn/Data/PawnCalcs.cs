@@ -218,8 +218,8 @@ namespace Shell.Data
                 preparation = result.PreparationAmount;
             }
 
-            decimal firearmfee = 3;
-            decimal storagefee = 3;
+            decimal firearmfee = App.StorageFee.Firearm;
+            decimal storagefee = App.StorageFee.Item;
 
             decimal firearmcharge = firearmfee * pawn.NumberOfFirearms;
 

@@ -12,6 +12,42 @@ namespace Shell.Data
     {
         private string connectionString = Properties.Settings.Default.DatabaseConnection;
 
+        public StorageFee TaxyGetStorageFees()
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("TaxyGetPawnFees_WA_Storage", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read())
+                {
+                    StorageFee storagefee = new StorageFee(
+                         decimal.Parse(reader["Item"].ToString())
+                        ,decimal.Parse(reader["Firearm"].ToString())
+                        )
+                        ;
+                    return storagefee;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public Pawn PawnGetDetails(int pawnid)
         {
             SqlConnection conn = new SqlConnection(connectionString);
