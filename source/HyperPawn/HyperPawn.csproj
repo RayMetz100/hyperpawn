@@ -331,6 +331,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="deploy\HyperPawn.exe.config" />
     <None Include="HyperPawn_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -372,6 +373,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="deploy\HyperPawn.exe" />
     <Content Include="SQLother\10createdatabase\01 HyperPawnData.sql" />
     <Content Include="SQLother\10createdatabase\10 HyperPawn.sql" />
     <Content Include="SQLother\10createdatabase\15 InterestWA.sql" />
