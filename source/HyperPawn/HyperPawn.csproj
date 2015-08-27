@@ -382,6 +382,7 @@
     <Content Include="SQLother\70other\Dev\Transaction.sql" />
     <Content Include="SQLother\70other\Operations\MergeItems.sql" />
     <Content Include="SQLother\70other\PurchaseHistory.sql" />
+    <Content Include="SQLother\70other\Query for Rate Sheet Printing.sql" />
     <Content Include="SQLother\70other\Upgrade.sql" />
     <Content Include="SQLprocs\21procCustomer.sql" />
     <Content Include="SQLprocs\22procFirearm.sql" />
