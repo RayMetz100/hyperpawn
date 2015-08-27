@@ -7,7 +7,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -145,24 +144,18 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="0">Customer Note:</Label>
+            <Label Grid.Row="0">Customer Note:</Label>
             <TextBox Grid.Row="1" Background="Transparent" TextWrapping="Wrap" IsTabStop="False" Text="{Binding Path=Note}" Margin="1,0,-1,0"></TextBox>
             <TextBlock Grid.Row="2" Background="Transparent" Text="{Binding Path=IntegrationId}" Margin="1,0,-1,0"></TextBlock>
-        </Grid>
-        <StackPanel Grid.Column="2" Grid.Row="0" FlowDirection="LeftToRight"  Orientation="Vertical" VerticalAlignment="Bottom">
-            <Label Content="Barcode:" />
-            <TextBox Name="BarcodeTextbox" />
-            <Button Content="Process Barcode" Name="ProcessBarcodeButton" Click="ProcessBarcodeButton_Click" />
-            
-            <ContentControl Name="SaveButtonBorder" Margin="10">
+            <ContentControl Grid.Row="3" Name="SaveButtonBorder" Width="100">
                 <ContentControl.Content>
                     <Button HorizontalAlignment="Center" Name="SaveCustomer" Content="Save Customer" Click="SaveCustomer_Click" />
                 </ContentControl.Content>
             </ContentControl>
-            
-        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

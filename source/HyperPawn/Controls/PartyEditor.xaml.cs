@@ -95,88 +95,90 @@ namespace Shell.Controls
             SaveCustomer.Content = "Save Customer";
         }
 
+        /*
         private void ProcessBarcodeButton_Click(object sender, RoutedEventArgs e)
-        {
-            int StartPosition = 0;
-            try
-            {
-                getNextBarcodeValue("DAA", ref StartPosition);
-
-                party.Last = getNextBarcodeValue(",", ref StartPosition);
-                LastName.Text = party.Last;
-
-                party.First = getNextBarcodeValue(",", ref StartPosition);
-                FirstName.Text = party.First;
-
-                party.Middle = getNextBarcodeValue("DAG", ref StartPosition);
-                MiddleName.Text = party.Middle;
-
-                party.Street = getNextBarcodeValue("DAI", ref StartPosition);
-                Street.Text = party.Street;
-
-                party.City = getNextBarcodeValue("DAJ", ref StartPosition);
-                CityComboBox.Text = party.City;
-
-                party.State = getNextBarcodeValue("DAK", ref StartPosition);
-                State.Text = party.State;
-
-                party.Zip = (getNextBarcodeValue("DAQ", ref StartPosition)).Trim();
-                Zip.Text = party.Zip;
-
-                party.IDNumber = getNextBarcodeValue("DAR", ref StartPosition);
-                IDNumber.Text = party.IDNumber;
-
-                getNextBarcodeValue("DAS", ref StartPosition);
-                getNextBarcodeValue("DAT", ref StartPosition);
-                getNextBarcodeValue("DBA", ref StartPosition);
-
-                party.IdExpiration = DateTime.Parse(getNextBarcodeValue("DBB", ref StartPosition).Insert(4, "-").Insert(7, "-"));
-                IdExpiration.Text = party.IdExpiration.ToString();
-
-                party.DateOfBirth = DateTime.Parse(getNextBarcodeValue("DBC", ref StartPosition).Insert(4, "-").Insert(7, "-"));
-                DateOfBirth.Text = party.DateOfBirth.ToString();
-
-                string intSex = getNextBarcodeValue("DBD", ref StartPosition);
-                if (intSex == "1")
                 {
-                    party.Sex = "M";
-                    Sex.Text = "M";
+                    int StartPosition = 0;
+                    try
+                    {
+                        getNextBarcodeValue("DAA", ref StartPosition);
+
+                        party.Last = getNextBarcodeValue(",", ref StartPosition);
+                        LastName.Text = party.Last;
+
+                        party.First = getNextBarcodeValue(",", ref StartPosition);
+                        FirstName.Text = party.First;
+
+                        party.Middle = getNextBarcodeValue("DAG", ref StartPosition);
+                        MiddleName.Text = party.Middle;
+
+                        party.Street = getNextBarcodeValue("DAI", ref StartPosition);
+                        Street.Text = party.Street;
+
+                        party.City = getNextBarcodeValue("DAJ", ref StartPosition);
+                        CityComboBox.Text = party.City;
+
+                        party.State = getNextBarcodeValue("DAK", ref StartPosition);
+                        State.Text = party.State;
+
+                        party.Zip = (getNextBarcodeValue("DAQ", ref StartPosition)).Trim();
+                        Zip.Text = party.Zip;
+
+                        party.IDNumber = getNextBarcodeValue("DAR", ref StartPosition);
+                        IDNumber.Text = party.IDNumber;
+
+                        getNextBarcodeValue("DAS", ref StartPosition);
+                        getNextBarcodeValue("DAT", ref StartPosition);
+                        getNextBarcodeValue("DBA", ref StartPosition);
+
+                        party.IdExpiration = DateTime.Parse(getNextBarcodeValue("DBB", ref StartPosition).Insert(4, "-").Insert(7, "-"));
+                        IdExpiration.Text = party.IdExpiration.ToString();
+
+                        party.DateOfBirth = DateTime.Parse(getNextBarcodeValue("DBC", ref StartPosition).Insert(4, "-").Insert(7, "-"));
+                        DateOfBirth.Text = party.DateOfBirth.ToString();
+
+                        string intSex = getNextBarcodeValue("DBD", ref StartPosition);
+                        if (intSex == "1")
+                        {
+                            party.Sex = "M";
+                            Sex.Text = "M";
+                        }
+                        if (intSex == "2")
+                        {
+                            party.Sex = "F";
+                            Sex.Text = "F";
+                        }
+                        getNextBarcodeValue("DAU", ref StartPosition);
+
+                        party.Height = getNextBarcodeValue("DAW", ref StartPosition);
+                        HeightText.Text = party.Height;
+
+                        party.Weight = getNextBarcodeValue("DAY", ref StartPosition);
+                        Weight.Text = party.Weight;
+
+                        party.Eyes = getNextBarcodeValue("DAL", ref StartPosition);
+                        EyesComboBox.Text = party.Eyes;
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Unable to read this barcode");
+                    }
+                    //BarcodeTextbox.Text = null;
+
+
                 }
-                if (intSex == "2")
+
+
+                private string getNextBarcodeValue(string delimiter, ref int StartPosition)
                 {
-                    party.Sex = "F";
-                    Sex.Text = "F";
+                    string value;
+                    int NextDelimiterLocation;
+                    NextDelimiterLocation = BarcodeTextbox.Text.IndexOf(delimiter, StartPosition);
+                    value = BarcodeTextbox.Text.Substring(StartPosition, NextDelimiterLocation - StartPosition);
+                    StartPosition = NextDelimiterLocation + delimiter.Length;
+                    return value;
                 }
-                getNextBarcodeValue("DAU", ref StartPosition);
-
-                party.Height = getNextBarcodeValue("DAW", ref StartPosition);
-                HeightText.Text = party.Height;
-
-                party.Weight = getNextBarcodeValue("DAY", ref StartPosition);
-                Weight.Text = party.Weight;
-
-                party.Eyes = getNextBarcodeValue("DAL", ref StartPosition);
-                EyesComboBox.Text = party.Eyes;
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Unable to read this barcode");
-            }
-            BarcodeTextbox.Text = null;
-
-            
-        }
-
-        private string getNextBarcodeValue(string delimiter, ref int StartPosition)
-        {
-            string value;
-            int NextDelimiterLocation;
-            NextDelimiterLocation = BarcodeTextbox.Text.IndexOf(delimiter, StartPosition);
-            value = BarcodeTextbox.Text.Substring(StartPosition, NextDelimiterLocation - StartPosition);
-            StartPosition = NextDelimiterLocation + delimiter.Length;
-            return value;
-        }
-
+                */
     }
 }

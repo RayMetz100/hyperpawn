@@ -241,6 +241,7 @@ namespace Shell.Controls
                              where linqtable.ItemTypeId == 2
                              select linqtable.ItemId).Count();
 
+            pawn.NumberOfFirearms = countguns;
 
             Data.PawnCalcItem calcs = null;
 

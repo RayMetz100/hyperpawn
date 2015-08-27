@@ -66,13 +66,13 @@
             <StackPanel Name="PrintPreviewStackPanel" Style="{StaticResource smaller}">
                 <TextBlock  Background="Transparent" Text="{Binding Path=GunMessage}"/>
                 <TextBlock  Background="Transparent" FontSize="18" Text="{Binding Path=AmountFinancedMessage}"/>
+                <TextBlock  Background="Transparent" Text="{Binding Path=FinanceCharge}"/>
                 <TextBlock  Background="Transparent" Name="PickupCostTextbox" Text="{Binding Path=PickupCost}"/>
                 <TextBlock  Background="Transparent" Text="{Binding Path=RenewCost}"/>
                 <TextBlock  Background="Transparent" Text="{Binding Path=By30}"/>
                 <TextBlock  Background="Transparent" Text="{Binding Path=By60}"/>
                 <TextBlock  Background="Transparent" Text="{Binding Path=By90}"/>
                 <TextBlock  Background="Transparent" Text="{Binding Path=MonthlyInterestAmount}"/>
-                <TextBlock  Background="Transparent" Text="{Binding Path=FinanceCharge}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Reprint: " VerticalAlignment="Center"/>

@@ -89,7 +89,7 @@ namespace Shell.Data
                 if (numberofguns == 0)
                     return "no guns";
                 else
-                    return "Gun Fee: " + (3 * numberofguns).ToString("C2", new CultureInfo("en-US"));
+                    return "Gun Fee: " + (App.StorageFee.Firearm * numberofguns).ToString("C2", new CultureInfo("en-US"));
             }
         }
         
@@ -132,6 +132,7 @@ namespace Shell.Data
                 }
                 MonthlyInterestAmount = "Monthly Interest is: " + calcengine30.MonthlyInterest.ToString("c2");
                 FinanceCharge = "Finaince Charge is: " + calcengine30.Interest.ToString("c2");
+                //FinanceCharge = (R.FirearmFee * GunCount) + R.StorageFee + R.PreparationAmount + (R.MonthlyInterestAmount * 3)
                 PickupCost = "Pickup cost is" + (calcengine30.Interest + (calcengine30.MonthlyInterest * 2) + pawn.Amount).ToString("c2");
                 RenewCost = "Renew Cost is: " + (calcengine30.Interest + (calcengine30.MonthlyInterest * 2)).ToString("c2");
                 By30 = "By " + pawn.Date.Date.AddDays(30).ToString("d") + ", " + (calcengine30.Interest + (calcengine30.MonthlyInterest * 0) + pawn.Amount).ToString("c2") + " is due";

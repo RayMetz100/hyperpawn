@@ -145,7 +145,8 @@ namespace Shell.Data
             }
         }
 
-        public int NumberOfFirearms { get; set; }
+        public int NumberOfFirearms { get;
+            set; }
 
         public string ItemsXml
         {

@@ -4,7 +4,7 @@
     >
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Seach Items" Name="SearchItemsButton" Click="SearchItemsButton_Click"/>
+            <Button Content="Search Items" Name="SearchItemsButton" Click="SearchItemsButton_Click"/>
             <ContentControl MinWidth="20"/>
             <Button Content="Show Floor List" Name="ShowFloorListButton" Click="ShowFloorListButton_Click" />
             <ContentControl MinWidth="20"/>
